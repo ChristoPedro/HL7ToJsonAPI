@@ -14,4 +14,4 @@ http://host/conversao/hl72json
 
 The HL7 goes into the body, with content-type: application/x-www-form-urlencoded, into the parameter dados.
 
-<a href="">Here</a> you can see the postman request example.
+<a href="https://github.com/ChristoPedro/PythonHL7ToJson/blob/master/HL7%20to%20Json.postman_collection.json">Here</a> you can see the postman request example.
