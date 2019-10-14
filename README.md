@@ -10,7 +10,7 @@ The REST interface is made through Flask.
 
 With the coding running, send a POST request to the URL:
 
-http://host/conversao/hl72json
+http://localhost:5000/conversao/hl72json
 
 The HL7 goes into the body, with content-type: application/x-www-form-urlencoded, into the parameter dados.
 
