@@ -24,7 +24,7 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "dados",
+							"key": "data",
 							"value": "MSH|^~\\&|GHH_ADT||||20080115153000||ADT^A01^ADT_A01|0123456789|P|2.5||||AL\nEVN||20080115153000||AAA|AAA|20080114003000\nPID|1||566-554-3423^^^GHH^MR||EVERYMAN^ADAM^A|||M|||2222 HOME STREET^^ANN ARBOR^MI^^USA||555-555-2004~444-333-222|||M\nNK1|1|NUCLEAR^NELDA^W|SPO|2222 HOME STREET^^ANN ARBOR^MI^^USA",
 							"type": "text"
 						}
