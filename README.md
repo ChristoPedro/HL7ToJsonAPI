@@ -2,7 +2,7 @@
 
 This is a code that creates a REST service to parse HL7 to Json.
 
-Based on this code <a href="https://gist.github.com/prschmid/801e86891026a39b1fb4df7178828321#file-hl7_to_dict-py">here</a>
+Based on this code <a href="https://gist.github.com/prschmid/801e86891026a39b1fb4df7178828321#file-hl7_to_dict-py">here</a> from <a href="https://gist.github.com/prschmid">@prschmid</a>
 
 The REST interface is made through Flask.
 
