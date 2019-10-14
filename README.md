@@ -12,6 +12,6 @@ With the coding running, send a POST request to the URL:
 
 http://localhost:5000/conversao/hl72json
 
-The HL7 goes into the body, with content-type: application/x-www-form-urlencoded, into the parameter dados.
+The HL7 goes into the body, with content-type: application/x-www-form-urlencoded, into the parameter <i>data</i>.
 
 <a href="https://github.com/ChristoPedro/PythonHL7ToJson/blob/master/HL7%20to%20Json.postman_collection.json">Here</a> you can see the postman request example.
