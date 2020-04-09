@@ -1,9 +1,9 @@
-FROM python:slim as dependency
+FROM python:3.8-slim as dependency
 WORKDIR /reqs
 COPY requirements.txt /reqs
 RUN pip install --no-cache-dir -r requirements.txt
 
-FROM python:slim
+FROM python:3.8-slim
 WORKDIR /home/app
 COPY . .
 COPY --from=dependency /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/site-packages/
