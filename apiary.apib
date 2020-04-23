@@ -1,80 +1,201 @@
 FORMAT: 1A
-HOST: https://polls.apiblueprint.org/
+HOST: http://localhot:5000/
 
 # HL7ToJson
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Api to convert HL7 files into json.
 
-## Questions Collection [/questions]
+## HL72Json Collection [/questions]
 
-### List All Questions [GET]
+### Convert [POST]
+
+Convert your HL7 on the request body in the content-type: application/x-www-form-urlencoded and return a Json response.
+
++ Request (application/x-www-form-urlencoded)
+
+        "data": {MSH|^~\&|GHH_ADT||||20080115153000||ADT^A01^ADT_A01|0123456789|P|2.5||||AL
+                EVN||20080115153000||AAA|AAA|20080114003000
+                PID|1||566-554-3423^^^GHH^MR||EVERYMAN^ADAM^A|||M|||2222 HOME STREET^^ANN ARBOR^MI^^USA||555-555-2004~444-333-222|||M
+                NK1|1|NUCLEAR^NELDA^W|SPO|2222 HOME STREET^^ANN ARBOR^MI^^USA}
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+          "evn": {
+            "event_occurred": {
+              "time": {
+                "dtm": "20080114003000"
+              }
+            },
+            "event_reason_code": {
+              "is": {
+                "is": "AAA"
+              }
+            },
+            "operator_id": {
+              "id_number": {
+                "st": "AAA"
+              }
+            },
+            "recorded_date_time": {
+              "time": {
+                "dtm": "20080115153000"
+              }
             }
+          },
+          "msh": {
+            "application_acknowledgment_type": {
+              "id": {
+                "id": "AL"
+              }
+            },
+            "date_time_of_message": {
+              "time": {
+                "dtm": "20080115153000"
+              }
+            },
+            "encoding_characters": {
+              "st": {
+                "st": "\\S\\\\R\\\\E\\\\T\\"
+              }
+            },
+            "field_separator": {
+              "st": {
+                "st": "\\F\\"
+              }
+            },
+            "message_control_id": {
+              "st": {
+                "st": "0123456789"
+              }
+            },
+            "message_type": {
+              "message_code": {
+                "id": "ADT"
+              },
+              "message_structure": {
+                "id": "ADT_A01"
+              },
+              "trigger_event": {
+                "id": "A01"
+              }
+            },
+            "processing_id": {
+              "processing_id": {
+                "id": "P"
+              }
+            },
+            "sending_application": {
+              "namespace_id": {
+                "is": "GHH_ADT"
+              }
+            },
+            "version_id": {
+              "version_id": {
+                "id": "2.5"
+              }
+            }
+          },
+          "nk1": {
+            "address": {
+              "city": {
+                "st": "ANN ARBOR"
+              },
+              "country": {
+                "id": "USA"
+              },
+              "state_or_province": {
+                "st": "MI"
+              },
+              "street_address": {
+                "street_or_mailing_address": "2222 HOME STREET"
+              }
+            },
+            "name": {
+              "family_name": {
+                "surname": "NUCLEAR"
+              },
+              "given_name": {
+                "st": "NELDA"
+              },
+              "second_and_further_given_names_or_initials_thereof": {
+                "st": "W"
+              }
+            },
+            "relationship": {
+              "identifier": {
+                "st": "SPO"
+              }
+            },
+            "set_id_nk1": {
+              "si": {
+                "si": "1"
+              }
+            }
+          },
+          "pid": {
+            "administrative_sex": {
+              "is": {
+                "is": "M"
+              }
+            },
+            "marital_status": {
+              "identifier": {
+                "st": "M"
+              }
+            },
+            "patient_address": {
+              "city": {
+                "st": "ANN ARBOR"
+              },
+              "country": {
+                "id": "USA"
+              },
+              "state_or_province": {
+                "st": "MI"
+              },
+              "street_address": {
+                "street_or_mailing_address": "2222 HOME STREET"
+              }
+            },
+            "patient_identifier_list": {
+              "assigning_authority": {
+                "namespace_id": "GHH"
+              },
+              "id_number": {
+                "st": "566-554-3423"
+              },
+              "identifier_type_code": {
+                "id": "MR"
+              }
+            },
+            "patient_name": {
+              "family_name": {
+                "surname": "EVERYMAN"
+              },
+              "given_name": {
+                "st": "ADAM"
+              },
+              "second_and_further_given_names_or_initials_thereof": {
+                "st": "A"
+              }
+            },
+            "phone_number_home": [
+              {
+                "telephone_number": {
+                  "st": "555-555-2004"
+                }
+              },
+              {
+                "telephone_number": {
+                  "st": "444-333-222"
+                }
+              }
+            ],
+            "set_id_pid": {
+              "si": {
+                "si": "1"
+              }
+            }
+          }
+        }
