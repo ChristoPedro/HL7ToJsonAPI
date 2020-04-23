@@ -43,7 +43,7 @@ def hl7_message_to_dict(m, use_long_name=True):
         return m.to_er7()
 
 
-@app.route("/json2hl7", methods=["POST"])
+@app.route("/hl72json", methods=["POST"])
 def response():
 
     """Get HL7 data x-www-form-urlencoded body from the Post request
