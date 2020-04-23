@@ -5,18 +5,24 @@ HOST: http://localhot:5000/
 
 Api to convert HL7 files into json.
 
-## HL72Json Collection [/questions]
+## HL72Json Collection [/hl72json]
 
 ### Convert [POST]
 
 Convert your HL7 on the request body in the content-type: application/x-www-form-urlencoded and return a Json response.
 
-+ Request (application/x-www-form-urlencoded)
++ Request
 
-        "data=MSH|^~\&|GHH_ADT||||20080115153000||ADT^A01^ADT_A01|0123456789|P|2.5||||AL
-                EVN||20080115153000||AAA|AAA|20080114003000
-                PID|1||566-554-3423^^^GHH^MR||EVERYMAN^ADAM^A|||M|||2222 HOME STREET^^ANN ARBOR^MI^^USA||555-555-2004~444-333-222|||M
-                NK1|1|NUCLEAR^NELDA^W|SPO|2222 HOME STREET^^ANN ARBOR^MI^^USA"
+    + Headers
+    
+            Content-Type: application/x-www-form-urlencoded
+        
+    + Body
+    
+            "data=MSH|^~\&|GHH_ADT||||20080115153000||ADT^A01^ADT_A01|0123456789|P|2.5||||AL
+                    EVN||20080115153000||AAA|AAA|20080114003000
+                    PID|1||566-554-3423^^^GHH^MR||EVERYMAN^ADAM^A|||M|||2222 HOME STREET^^ANN ARBOR^MI^^USA||555-555-2004~444-333-222|||M
+                    NK1|1|NUCLEAR^NELDA^W|SPO|2222 HOME STREET^^ANN ARBOR^MI^^USA"
 
 + Response 200 (application/json)
 
