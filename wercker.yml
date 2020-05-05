@@ -1,0 +1,9 @@
+box: node
+build:
+  steps:
+    - script:
+        name: install-dredd
+        code: npm install dredd@13.1.0 --global
+    - script:
+        name: dredd
+        code: dredd
