@@ -17,8 +17,11 @@ spec:
       containers:
       - name: hl72json
         image: iad.ocir.io/id4beafwqb9e/pedrochristo/hl72json
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: ocirsecret
 ---
 apiVersion: v1
 kind: Service
