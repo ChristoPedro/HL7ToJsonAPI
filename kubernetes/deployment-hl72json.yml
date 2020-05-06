@@ -21,7 +21,7 @@ spec:
         ports:
         - containerPort: 5000
       imagePullSecrets:
-      - name: ocirsecret
+      - name: ocisecret
 ---
 apiVersion: v1
 kind: Service
