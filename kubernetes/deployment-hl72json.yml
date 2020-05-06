@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hl72json
-        image: pedrochristo/hl72json:latest
+        image: iad.ocir.io/id4beafwqb9e/pedrochristo/hl72json
         ports:
         - containerPort: 5000
 ---
